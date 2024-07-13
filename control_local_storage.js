@@ -13,14 +13,8 @@ if (localStorage.getItem("Names")) {
   output.innerHTML = "Local Storage Is Empty";
 }
 
-for (let button of buttons) {
-  if (button.className != "show") {
-    button.onclick = function () {
-      if (!input.value) {
-        output.innerHTML = "Input Can't Be Empty";
-      }
-    };
-  }
+function showMessage() {
+  output.innerHTML = "Input Can't Be Empty";
 }
 
 add.addEventListener("click", function () {
@@ -33,6 +27,8 @@ add.addEventListener("click", function () {
       output.innerHTML = `Local Storage Item <span>${input.value}</span> Added`;
       input.value = "";
     }
+  } else {
+    showMessage();
   }
 });
 
@@ -54,6 +50,8 @@ check.addEventListener("click", function () {
     } else {
       output.innerHTML = `No Local Storage Item with This name <span>${input.value}</span>`;
     }
+  } else {
+    showMessage();
   }
 });
 
@@ -73,6 +71,8 @@ Delete.addEventListener("click", function () {
         output.innerHTML = `No Local Storage Item with This name <span>${input.value}</span>`;
       }
     }
+  } else {
+    showMessage();
   }
 });
 
